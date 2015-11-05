@@ -32,8 +32,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         super.viewDidLoad()
 
         //set up view as a delegate for the text fields
-        self.topText.delegate = self;
-        self.bottomText.delegate = self;
+        topText.delegate = self;
+        bottomText.delegate = self;
         
         //enable the camera button only if caller has a camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -60,13 +60,13 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     //subscribe to keyboard notifications just before the view appears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     //unsubscribe from keyboard notifications just before view disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
    //this is the function that will save a meme; it will be further
@@ -98,14 +98,14 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             } }
 
         //display the Activity View Controller
-          self.presentViewController(activityViewController,animated: true, completion: nil)
+          presentViewController(activityViewController,animated: true, completion: nil)
     }
 
     //I did not implement the cancel button, even though it is shown on the
     //demo app.  The documentation I found discouraged cancelling the app,
     //though it can be done with a call to the exit function.
     @IBAction func cancelApp(sender: AnyObject) {
-      self.dismissViewControllerAnimated(false, completion: nil)
+      dismissViewControllerAnimated(false, completion: nil)
         
     }
     
@@ -114,20 +114,20 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         //we want to hide the toolbars, so that they are not
         //part of the meme
-        self.topToolbar.hidden = true
-        self.bottomToolbar.hidden = true
+        topToolbar.hidden = true
+        bottomToolbar.hidden = true
         
         //create the image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         //once the image is created, the toolbars can be redisplayed
-        self.topToolbar.hidden = false
-        self.bottomToolbar.hidden = false
+        topToolbar.hidden = false
+        bottomToolbar.hidden = false
         
         return memedImage
     }
@@ -139,9 +139,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         //move the picture up so that the user can see the text
         //while typing; we need to do this only for the botton 
         //keyboard
-        if (self.bottomText.isFirstResponder())
+        if (bottomText.isFirstResponder())
         {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
@@ -149,9 +149,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         //move the picture back down while typing; we need to do this 
         //only for the botton keyboard
-        if (self.bottomText.isFirstResponder())
+        if (bottomText.isFirstResponder())
         {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -172,7 +172,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     //detects when a user touches the screen and removes the keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     //subscribe to keyboard show and hide notifications
@@ -197,7 +197,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(pickerController, animated:true, completion:nil)
+        presentViewController(pickerController, animated:true, completion:nil)
     }
 
     //execute this when user selects album icon
@@ -206,28 +206,28 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated:true, completion:nil)
+        presentViewController(pickerController, animated:true, completion:nil)
     }
 
     //executed when user selects image from image picker
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
-            self.imagePickerView.image = image
-            self.dismissViewControllerAnimated(true, completion: nil)
-            self.topText.hidden = false;
-            self.bottomText.hidden = false;
+            imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
+            imagePickerView.image = image
+            dismissViewControllerAnimated(true, completion: nil)
+            topText.hidden = false;
+            bottomText.hidden = false;
 
         }
     }
  
     //executed when user selects cancel icon from image picker
     func imagePickerControllerDidCancel(picker: UIImagePickerController){
-        self.imagePickerView.image = nil
-        self.topText.hidden = true
-        self.bottomText.hidden = true
-        self.dismissViewControllerAnimated(true, completion: nil)
+        imagePickerView.image = nil
+        topText.hidden = true
+        bottomText.hidden = true
+        dismissViewControllerAnimated(true, completion: nil)
     
     }
     

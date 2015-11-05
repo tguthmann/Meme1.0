@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T6S-xI-6VE">
-                                <rect key="frame" x="36" y="59" width="529" height="400"/>
+                                <rect key="frame" x="36" y="59" width="529" height="476"/>
                                 <animations/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqi-DU-yAY">
@@ -41,8 +41,8 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="yKG-uV-oAr"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNC-o2-Dha">
-                                <rect key="frame" x="50" y="422" width="500" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aNC-o2-Dha">
+                                <rect key="frame" x="50" y="490" width="500" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -72,7 +72,7 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="rQ6-bf-V2l"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VUn-RI-IDS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="VUn-RI-IDS">
                                 <rect key="frame" x="50" y="74" width="500" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -89,13 +89,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hH3-C2-Kcb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="1fb-u8-fFb"/>
-                            <constraint firstItem="eqi-DU-yAY" firstAttribute="top" secondItem="T6S-xI-6VE" secondAttribute="bottom" constant="94" id="2EH-KD-byP"/>
+                            <constraint firstItem="eqi-DU-yAY" firstAttribute="top" secondItem="T6S-xI-6VE" secondAttribute="bottom" constant="18" id="2EH-KD-byP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hH3-C2-Kcb" secondAttribute="trailing" constant="-17" id="9Rf-62-Plp"/>
                             <constraint firstItem="VUn-RI-IDS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="C9D-vk-mo0"/>
                             <constraint firstItem="T6S-xI-6VE" firstAttribute="top" secondItem="hH3-C2-Kcb" secondAttribute="bottom" constant="15" id="DSu-uG-D2I"/>
                             <constraint firstItem="VUn-RI-IDS" firstAttribute="top" secondItem="hH3-C2-Kcb" secondAttribute="bottom" constant="30" id="GAs-iA-Slv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eqi-DU-yAY" secondAttribute="bottom" constant="3" id="Gea-rP-7VQ"/>
-                            <constraint firstItem="aNC-o2-Dha" firstAttribute="top" secondItem="T6S-xI-6VE" secondAttribute="bottom" constant="-37" id="IHE-QO-MfK"/>
+                            <constraint firstItem="aNC-o2-Dha" firstAttribute="top" secondItem="T6S-xI-6VE" secondAttribute="bottom" constant="-45" id="IHE-QO-MfK"/>
                             <constraint firstItem="VUn-RI-IDS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NfU-iT-Loy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aNC-o2-Dha" secondAttribute="trailing" constant="30" id="UEd-Bh-nbL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T6S-xI-6VE" secondAttribute="trailing" constant="15" id="ZSd-lo-kVM"/>
