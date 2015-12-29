@@ -19,14 +19,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var cancelImagePicker: UIToolbar!
     
-    //the Meme struct stores data needed to save a Meme
-    struct Meme {
-        var topText : String
-        var bottomText : String
-        var image : UIImage
-        var memedImage : UIImage
-    }
-    
     //executes just after view loads; setup information here
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,16 +61,13 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         unsubscribeFromKeyboardNotifications()
     }
     
-   //this is the function that will save a meme; it will be further
-    //implemented in Meme Me 2.0
-    //the compiler suggested adding the '_' to remove the warning that
-    //the created meme is not being used.
-    //warning: /Users/tinaguthmann/Udacity2/ImagePicker/ImagePicker/ViewController.swift:36:13: Initialization of immutable value 'meme' was never used; consider replacing with assignment to '_' or removing it
-
+    //saves the memed image, which is the image with the top and bottom
+    //text
     func save(memedImage:UIImage){
-        _ = Meme( topText:topText.text!, bottomText: bottomText.text!, image:
+        let meme = Meme( topText:topText.text!, bottomText: bottomText.text!, image:
             imagePickerView.image!, memedImage: memedImage)
-       
+        
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     //this function is executed when the Action button is selected
@@ -91,11 +80,14 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         //create the Activity View Controller
         let activityViewController = UIActivityViewController(activityItems: [memedImage],applicationActivities: nil)
         
-        //this sets up the save of the meme, which will be doen when the Activity View Controller is completed
-        activityViewController.completionWithItemsHandler = {(activity, completed, items, error) in
-            if (completed) {
+        //this sets up the save of the meme, which will be done when the Activity View Controller is completed
+        activityViewController.completionWithItemsHandler = {
+            (activity, completed, items, error) in
+            if (completed)
+            {
                 self.save(memedImage)
-            } }
+            }
+        }
 
         //display the Activity View Controller
           presentViewController(activityViewController,animated: true, completion: nil)
@@ -145,6 +137,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         }
     }
     
+    //we have subscribed to keyboard notifications, so we can be
+    //notified just before the keyboard will hide;
     func keyboardWillHide(notification: NSNotification) {
         
         //move the picture back down while typing; we need to do this 
@@ -222,13 +216,13 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         }
     }
  
-    //executed when user selects cancel icon from image picker
+    //executed when user selects cancel icon from image picker;
+    //dismisses imagePicker
     func imagePickerControllerDidCancel(picker: UIImagePickerController){
         imagePickerView.image = nil
         topText.hidden = true
         bottomText.hidden = true
         dismissViewControllerAnimated(true, completion: nil)
-    
     }
     
 }
