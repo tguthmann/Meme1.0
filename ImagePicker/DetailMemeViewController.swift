@@ -22,15 +22,15 @@ class DetailMemeViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController?.tabBar.hidden = true
+        tabBarController?.tabBar.hidden = true
         
-        self.imageView!.image = meme.memedImage
+        imageView!.image = meme.memedImage
     }
     
     //redisplays tab bar just before view disappears
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
     }
 
 }

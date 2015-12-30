@@ -32,10 +32,10 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         //set up text
         let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.clearColor(),
+            NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSBackgroundColorAttributeName : UIColor.clearColor(),
-            NSStrokeWidthAttributeName : -1.0
+            NSStrokeWidthAttributeName : -4.0
         ]
         
         topText.defaultTextAttributes = memeTextAttributes

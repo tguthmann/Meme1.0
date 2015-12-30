@@ -25,8 +25,8 @@ class SentMemeCollectionViewController: UICollectionViewController {
         //set variables which control how the memes will be layed
         //out on device
         let space: CGFloat = 0.5
-        let w = (self.view.frame.size.width - (2 * space)) / 3.0
-        let h = (self.view.frame.size.height - (2 * space)) / 3.0
+        let w = (view.frame.size.width - (2 * space)) / 3.0
+        let h = (view.frame.size.height - (2 * space)) / 3.0
  
         //the code below was found at this site:
         /* www.snip2code.com/Snippet/136447/Receive-device-orientation-notifications */
@@ -52,8 +52,8 @@ class SentMemeCollectionViewController: UICollectionViewController {
     //to make sure any newly created memes are displayed
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
-        self.collectionView!.reloadData()
+        tabBarController?.tabBar.hidden = false
+        collectionView!.reloadData()
     }
     
     //subscribe/unsubscribe to orientation notifications so that
@@ -73,7 +73,7 @@ class SentMemeCollectionViewController: UICollectionViewController {
     
     //returns number of memes
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
     
     //returns a cell for the table view; in this case the table view
@@ -82,7 +82,7 @@ class SentMemeCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SentMemeCollectionViewCell", forIndexPath: indexPath) as! SentMemeCollectionViewCell
 
-        let meme = self.memes[indexPath.row]
+        let meme = memes[indexPath.row]
         
         cell.imageView?.image = meme.memedImage
 
@@ -92,9 +92,9 @@ class SentMemeCollectionViewController: UICollectionViewController {
     //passes selected meme to Detail View
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailMemeViewController") as! DetailMemeViewController
-        detailController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailMemeViewController") as! DetailMemeViewController
+        detailController.meme = memes[indexPath.row]
+        navigationController!.pushViewController(detailController, animated: true)
     }
 
 }
