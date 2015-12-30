@@ -107,19 +107,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-n0-bOn">
-                                <rect key="frame" x="98" y="118" width="440" height="363"/>
+                                <rect key="frame" x="30" y="40" width="520" height="504"/>
                                 <animations/>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Lp-H1-AQq" firstAttribute="top" secondItem="PyB-n0-bOn" secondAttribute="bottom" constant="119" id="8g0-4d-lE5"/>
-                            <constraint firstItem="PyB-n0-bOn" firstAttribute="top" secondItem="lYO-IH-Dzn" secondAttribute="bottom" constant="98" id="DP2-AC-SBe"/>
-                            <constraint firstItem="PyB-n0-bOn" firstAttribute="centerY" secondItem="GLd-5I-0Ue" secondAttribute="centerY" id="Dm8-lq-mdO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PyB-n0-bOn" secondAttribute="trailing" constant="42" id="ZCv-c5-9s8"/>
-                            <constraint firstItem="PyB-n0-bOn" firstAttribute="centerX" secondItem="GLd-5I-0Ue" secondAttribute="centerX" constant="18" id="gS2-oZ-uPv"/>
-                            <constraint firstItem="PyB-n0-bOn" firstAttribute="leading" secondItem="GLd-5I-0Ue" secondAttribute="leadingMargin" constant="78" id="tzn-cv-7AS"/>
+                            <constraint firstItem="PyB-n0-bOn" firstAttribute="top" secondItem="lYO-IH-Dzn" secondAttribute="bottom" constant="20" id="Oii-Ln-FbE"/>
+                            <constraint firstItem="PyB-n0-bOn" firstAttribute="leading" secondItem="GLd-5I-0Ue" secondAttribute="leadingMargin" constant="10" id="SFH-EP-8at"/>
+                            <constraint firstItem="1Lp-H1-AQq" firstAttribute="top" secondItem="PyB-n0-bOn" secondAttribute="bottom" constant="56" id="dv2-UA-WcQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PyB-n0-bOn" secondAttribute="trailing" constant="30" id="pcu-5h-kba"/>
                         </constraints>
                     </view>
                     <connections>
